@@ -1,0 +1,10 @@
+Flask
+gunicorn
+eventlet
+pandas
+numpy
+keras
+tensorflow
+scipy
+cv2
+pathlib
