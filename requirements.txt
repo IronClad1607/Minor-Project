@@ -4,7 +4,6 @@ eventlet
 pandas
 numpy
 keras
-tensorflow
 scipy
 opencv-python
 pathlib
