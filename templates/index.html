@@ -1,0 +1,40 @@
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face recognition</title>
+     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"> 
+</head>
+<body> -->
+   
+    <h1>Face Recognition</h1>
+    <form action="/image" method = 'POST' enctype="multipart/form-data">
+        <label for="img" class ="btn btn-primary">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*">
+        <button type = "submit" class = "btn btn-primary">submit</button>
+      </form>
+      
+<!-- 
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div> -->
+        
+<!--         
+ <div class="loader" style="display:none;"></div> -->
+
+    {% if result %}
+    <div><h2>Result: <i> {{result}} </i> </h2></div>
+    
+        {% for table in tables %}
+            {{ table|safe}}
+        {% endfor %}
+    {% endif %}
+
+</body>
+</html>
+
