@@ -6,5 +6,6 @@ numpy
 keras
 tensorflow
 scipy
-cv2
+opencv-python
 pathlib
+Werkzeug
