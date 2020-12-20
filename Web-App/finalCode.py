@@ -40,7 +40,7 @@ def predict(photo):
     p = Path("dataset111/")
     dirs = p.glob("*")
     
-    label_dict = {0:"Aamir",1:"Salman",2:"Satvik",3:"Shahrukh"}
+    label_dict = {0:"Aamir",1:"Ishaan", 2:"Salman",3:"Sargam",4:"Satvik",5:"Shahrukh"}
     l = []
     for folder_dir in dirs:
         #label = str(folder_dir).split("\\")[-1]
