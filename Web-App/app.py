@@ -1,8 +1,10 @@
 from flask import Flask, render_template, redirect, request
 from flask_ngrok import run_with_ngrok
+import excel2json
+from flask import jsonify 
 import finalCode
 import pandas as pd
-
+import pandas
 
 app = Flask(__name__)
 run_with_ngrok(app)
@@ -16,6 +18,14 @@ def wait_for_result():
 def getAll():
     df = pd.read_excel("test.xlsx")
     return render_template('base.html',tables=[df.to_html()],titles = ['na', 'Table'])
+
+@app.route("/allUser",methods= ['GET','POST'])
+def getAllUser():
+    df = pd.read_excel("test.xlsx")
+    # a = excel2json.convert_from_file('test.xlsx')
+    a = df.to_json(orient='records')
+    return a
+    
 
 
 @app.route('/image', methods = ['GET'])
@@ -41,6 +51,7 @@ def result():
 
 
     return render_template('index.html',result=image_result, tables=[dataf.to_html()])
+
 
 
 if __name__ == '__main__':
