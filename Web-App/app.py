@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request
-from flask_ngrok import run_with_ngrok
+# from flask_ngrok import run_with_ngrok
 import excel2json
 from flask import jsonify 
 import finalCode
@@ -22,7 +22,7 @@ def getAll():
 @app.route("/allUser",methods= ['GET','POST'])
 def getAllUser():
     df = pd.read_excel("test.xlsx")
-    # a = excel2json.convert_from_file('test.xlsx')
+    a = excel2json.convert_from_file('test.xlsx')
     a = df.to_json(orient='records')
     return a
     
@@ -55,4 +55,4 @@ def result():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
