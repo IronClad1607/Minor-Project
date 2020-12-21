@@ -1,18 +1,36 @@
 
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face recognition</title>
-     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"> 
+     <!-- <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">  -->
+     <!-- <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">      
+
 </head>
-<body> -->
+<body> 
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#" style ="text-align: center;">Face Recognition</a>
+        </div>
+    </nav>
+    <!-- gap -->
+    <div class="container">
+        <div id="content" style="margin-top:2em">
+        </div>
+    </div>
    
-    <h1>Face Recognition</h1>
-    <form action="/image" method = 'POST' enctype="multipart/form-data">
-        <label for="img" class ="btn btn-primary">Select image:</label>
+    <h1 style="text-align:center" >Face Recognition</h1>
+    <form action="/image" method = 'POST' enctype="multipart/form-data" style="text-align:center">
+        <label for="img" >Select image:</label>
         <input type="file" id="img" name="img" accept="image/*">
         <button type = "submit" class = "btn btn-primary">submit</button>
       </form>

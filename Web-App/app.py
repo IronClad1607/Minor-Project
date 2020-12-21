@@ -5,8 +5,14 @@ from flask import jsonify
 import finalCode
 import pandas as pd
 import pandas
+import base64
+from flask_restplus import Api,Resource
+from flask_cors import CORS
+from flask import jsonify
 
 app = Flask(__name__)
+#CORS(app)
+#API_NAME = Api(app)
 run_with_ngrok(app)
 
 
@@ -38,8 +44,11 @@ def result():
     if request.method == 'POST':
    
         f = request.files['img']
-        path = './static/{}'.format(f.filename) 
+        print(f)
+        path = './static/{}'.format(f.filename)
+        print(path) 
         f.save(path)
+        print(f)
 
     image_result = finalCode.predict(f)
     user_final = "Sargam"
@@ -51,6 +60,20 @@ def result():
 
 
     return render_template('index.html',result=image_result, tables=[dataf.to_html()])
+
+
+# class imageApp(Resource):
+#     def getImage(self):
+#         params = request.args.getstring('encoded_image')
+#         print params
+#         base64_dencode= base64.decodestring(params)
+#         image_result = open('result.jpg','wb')
+#         image_result.write(base64_dencode)
+
+        
+#         path = './static/' 
+#         f.save(path)
+#         image_result = finalCode.predict(f)
 
 
 
