@@ -58,8 +58,11 @@ def result():
     user_final = "Sargam"
     df = pd.read_excel("test.xlsx")
 
-    selected_user = df[df["Name"] == image_result]
-    dataf = pd.DataFrame({'Name': selected_user["Name"]}) 
+    selected_user = df[df["Name"] == user_final]
+    dataf = pd.DataFrame({'Id': selected_user["Id"], 'Name': selected_user["Name"], 'Age': selected_user["Age"], 'Place of Birth': selected_user["Place of Birth"], 'Gender': selected_user["Gender"], 'Marital Status': selected_user["Marital Status"],}) 
+    
+
+
     return render_template('index.html',result=image_result, tables=[dataf.to_html()])
 
 if __name__ == '__main__':
