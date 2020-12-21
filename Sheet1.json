@@ -1,0 +1,50 @@
+[
+    {
+        "Id": 0.0,
+        "Name": "Aamir Khan",
+        "Age": 55.0,
+        "Place of Birth": "Mumbai",
+        "Gender": "M",
+        "Marital Status": "Y"
+    },
+    {
+        "Id": 1.0,
+        "Name": "Ishaan",
+        "Age": 21.0,
+        "Place of Birth": "New Delhi",
+        "Gender": "M",
+        "Marital Status": "N"
+    },
+    {
+        "Id": 2.0,
+        "Name": "Salman",
+        "Age": 54.0,
+        "Place of Birth": "Indore",
+        "Gender": "M",
+        "Marital Status": "N"
+    },
+    {
+        "Id": 3.0,
+        "Name": "Sargam",
+        "Age": 22.0,
+        "Place of Birth": "Agra",
+        "Gender": "F",
+        "Marital Status": "Y"
+    },
+    {
+        "Id": 4.0,
+        "Name": "Satvik",
+        "Age": 22.0,
+        "Place of Birth": "Vinukonda",
+        "Gender": "M",
+        "Marital Status": "N"
+    },
+    {
+        "Id": 5.0,
+        "Name": "Shahrukh Khan",
+        "Age": 55.0,
+        "Place of Birth": "New Delhi",
+        "Gender": "M",
+        "Marital Status": "Y"
+    }
+]
