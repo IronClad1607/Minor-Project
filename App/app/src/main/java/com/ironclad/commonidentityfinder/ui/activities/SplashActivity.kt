@@ -17,6 +17,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding?.root)
         Handler().postDelayed({
             val splashIntent = Intent(this, HomeActivity::class.java)
+            //TODO add log messages
             startActivity(splashIntent)
         }, SPLASH_DELAY)
     }

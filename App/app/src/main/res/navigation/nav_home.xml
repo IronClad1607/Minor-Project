@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/finderFragment">
+
+    <fragment
+        android:id="@+id/finderFragment"
+        android:name="com.ironclad.commonidentityfinder.ui.fragment.FinderFragment"
+        android:label="Finder Fragment"
+        tools:layout="@layout/fragment_finder">
+        <action
+            android:id="@+id/goToDirectory"
+            app:destination="@id/directoryFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/directoryFragment"
+        android:name="com.ironclad.commonidentityfinder.ui.fragment.DirectoryFragment"
+        android:label="Directory Fragment"
+        tools:layout="@layout/fragment_directory">
+        <action
+            android:id="@+id/goToFinder"
+            app:destination="@id/finderFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
+
+
+</navigation>
