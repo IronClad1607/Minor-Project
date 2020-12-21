@@ -1,19 +1,13 @@
 from flask import Flask, render_template, redirect, request
-from flask_ngrok import run_with_ngrok
+# from flask_ngrok import run_with_ngrok
 import excel2json
 from flask import jsonify 
 import finalCode
 import pandas as pd
 import pandas
-import base64
-from flask_restplus import Api,Resource
-from flask_cors import CORS
-from flask import jsonify
 
 app = Flask(__name__)
-#CORS(app)
-#API_NAME = Api(app)
-run_with_ngrok(app)
+# run_with_ngrok(app)
 
 
 @app.route('/', methods = ['GET'])
@@ -28,7 +22,7 @@ def getAll():
 @app.route("/allUser",methods= ['GET','POST'])
 def getAllUser():
     df = pd.read_excel("test.xlsx")
-    # a = excel2json.convert_from_file('test.xlsx')
+    a = excel2json.convert_from_file('test.xlsx')
     a = df.to_json(orient='records')
     return a
     
@@ -44,11 +38,8 @@ def result():
     if request.method == 'POST':
    
         f = request.files['img']
-        print(f)
-        path = './static/{}'.format(f.filename)
-        print(path) 
+        path = './static/{}'.format(f.filename) 
         f.save(path)
-        print(f)
 
     image_result = finalCode.predict(f)
     user_final = "Sargam"
@@ -62,20 +53,6 @@ def result():
     return render_template('index.html',result=image_result, tables=[dataf.to_html()])
 
 
-# class imageApp(Resource):
-#     def getImage(self):
-#         params = request.args.getstring('encoded_image')
-#         print params
-#         base64_dencode= base64.decodestring(params)
-#         image_result = open('result.jpg','wb')
-#         image_result.write(base64_dencode)
-
-        
-#         path = './static/' 
-#         f.save(path)
-#         image_result = finalCode.predict(f)
-
-
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
