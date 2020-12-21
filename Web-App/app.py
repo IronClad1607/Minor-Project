@@ -24,11 +24,7 @@ def getAll():
 @app.route("/allUser",methods= ['GET','POST'])
 def getAllUser():
     df = pd.read_excel("test.xlsx")
-<<<<<<< HEAD
-    # a = excel2json.convert_from_file('test.xlsx')
-=======
-#a = excel2json.convert_from_file('test.xlsx')
->>>>>>> 21ab70df2344eb970469e21ceb6b6cb44cf59a85
+
     a = df.to_json(orient='records')
     jd = json.loads(a)
     #print(type(a))
@@ -40,9 +36,9 @@ def getUser(Id):
 #a = excel2json.convert_from_file('test.xlsx')
     a = df.to_json(orient='records')
     jdata = json.loads(a)
-    print(jdata)
+
     user=list(filter(lambda u: str(u['Id'])== Id, jdata))
-    print(user)
+    
     return jsonify(user)
 
 @app.route('/image', methods = ['GET'])
