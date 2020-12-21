@@ -19,6 +19,8 @@ class DirectoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //TODO create layout file
+        //TODO create adapter
         binding = FragmentDirectoryBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(DirectoryViewModel::class.java)
         viewModel.getAllUsers()

@@ -5,23 +5,21 @@ import androidx.lifecycle.*
 import com.ironclad.api.models.entities.User
 import com.ironclad.api.models.response.AllUserResponse
 import com.ironclad.commonidentityfinder.data.CafRepo
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DirectoryViewModel : ViewModel() {
 
     private val _allUsers = MutableLiveData<List<User>>()
-    val allUser :LiveData<List<User>> = _allUsers
+    val allUser: LiveData<List<User>> = _allUsers
 
     fun getAllUsers() = viewModelScope.launch {
-        Log.d("Ishaan","Scope opened")
+        Log.d("Ishaan", "Scope opened")
 
-        val users = listOf(
-            User(1, "M", 3, "N", "Ishaan", "Delhi"),
-            User(1, "M", 3, "N", "Ishaan", "Delhi"),
-            User(1, "M", 3, "N", "Ishaan", "Delhi")
-        )
-        Log.d("Ishaan","users list = $users")
-
-        _allUsers.postValue(users)
+        withContext(Dispatchers.IO) {
+            val users = CafRepo.getAllUsers()
+            _allUsers.postValue(users)
+        }
     }
 }
