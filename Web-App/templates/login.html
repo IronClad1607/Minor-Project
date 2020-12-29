@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}"> 
+    <style>
+      body{
+      background: #373B44; 
+      background: -webkit-linear-gradient(to right, #4286f4, #373B44);  
+      background: linear-gradient(to right, #4286f4, #373B44); 
+      }
+    </style>
+
+</head>
+
+
+<body>
+      <div class=""> 
+      
+        <!-- <hr class="my-4"> -->
+        {% if smessage %}
+          <div class="alert alert-success">
+            {{ smessage }}
+          </div>
+        {% endif %}
+        {% if umessage %}
+          <div class="alert alert-danger">
+            {{ umessage }}
+          </div>
+        {% endif %}
+        </div>
+
+        <!-- <form action="/login" method="post">
+            <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" name="name"  placeholder="Enter email">
+            </div>
+            <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+        </form>  -->
+
+         <!-- <div class="row">
+          <div class="col-sm">
+            <a href="/forgot" class="text-decoration-none">Forgot Password</a>
+          </div>
+          <div class="col-sm">
+            <a href="/signUp" class="text-decoration-none">Create Account</a>
+          </div>
+        </div> -->
+
+        <div class="wrapper fadeInDown">
+          <div id="formContent">
+            
+            <div class="fadeIn first">
+              <h1>Login</h1>
+            </div>
+        
+            <form action="/login" method ="POST">
+              <input type="text" id="login" class="fadeIn second" name="name" placeholder="Enter your email">
+              <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+              <input type="submit" class="fadeIn fourth" value="Log In" name ="submit">
+            </form>
+        
+            <div id="formFooter">
+              <a class="underlineHover" href="\forgot">Forgot Password</a><br>
+              <a class="underlineHover" href="\signUp">create account</a><br>
+              <a class="underlineHover" href="\">home</a>
+            </div>
+          </div>
+        </div> 
+
+        
+    
+</body>
+</html>
