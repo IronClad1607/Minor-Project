@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}"> 
+
+    <style>
+      body{
+      background: #373B44; 
+      background: -webkit-linear-gradient(to right, #4286f4, #373B44);  
+      background: linear-gradient(to right, #4286f4, #373B44);  
+      }
+    </style>
+  </head>
+
+    <div class="container">
+        <!-- <hr class="my-4"> -->
+        {% if smessage %}
+          <div class="alert alert-success">
+            {{ smessage }}
+          </div>
+        {% endif %}
+        {% if umessage %}
+          <div class="alert alert-danger">
+            {{ umessage }}
+          </div>
+        {% endif %}
+    </div>
+
+        <!-- <form action="/forgot" method="post">
+            <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" name="name"  placeholder="Enter email">
+            </div>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+        </form>
+     </div> -->
+    
+     <div class="wrapper fadeInDown">
+      <div id="formContent">
+        
+        <div class="fadeIn first">
+          <h1>Forget Password?</h1>
+        </div>
+    
+        <!-- Login Form -->
+        <form action="\forgot" method="POST">
+          <label for="exampleInputEmail1">Enter your Email address</label>
+          <input type="text" id="login" class="fadeIn second" name="name" placeholder= "Email">
+          <input type="submit" class="fadeIn fourth" value="submit" name="submit">
+        </form>
+    
+       
+        <div id="formFooter">
+          <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+    
+      </div>
+    </div>
+
+    
+</body>
+</html>

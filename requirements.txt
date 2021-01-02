@@ -7,4 +7,5 @@ keras
 scipy
 opencv-python
 pathlib
+tensorflow-cpu
 Werkzeug
