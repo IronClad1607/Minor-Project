@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request
 import pyrebase
-from flask_ngrok import run_with_ngrok
+# from flask_ngrok import run_with_ngrok
 import excel2json
 from flask import jsonify 
 import finalCode
@@ -9,7 +9,7 @@ import json
 from config import *
 
 app = Flask(__name__)
-run_with_ngrok(app)
+# run_with_ngrok(app)
 
 
 
@@ -51,6 +51,30 @@ def forget_password():
     return render_template('forgetPass.html')
 
 
+@app.route('/fetchResult', methods =['GET', 'POST'])
+def fetchResult():
+
+    if request.method == 'POST':
+   
+        f = request.files['img']
+        path = './static/{}'.format(f.filename) 
+        f.save(path)
+
+    image_result = finalCode.predict(f)
+    user_final = "Sargam"
+    df = pd.read_excel("test.xlsx")
+
+    #selected_user = df[df["Name"] == user_final]
+    #dataf = pd.DataFrame({'Id': selected_user["Id"], 'Name': selected_user["Name"], 'Age': selected_user["Age"], 'Place of Birth': s
+    #a = excel2json.convert_from_file('test.xlsx')
+    a = df.to_json(orient='records')
+    jdata = json.loads(a)
+
+    user=list(filter(lambda u: str(u['Name'])== image_result, jdata))
+    
+    return jsonify(user)
+
+    #return render_template('index.html',result=image_result, tables=[dataf.to_html()])
 
 @app.route('/', methods = ['GET'])
 def wait_for_result():
@@ -62,8 +86,8 @@ def home():
 
 @app.route('/logout', methods =['GET'])
 def logout():
-    auth.signOut()
-    return render_template('hello1.html')
+    # auth.signout()
+    return render_template('home1.html')
 
 @app.route("/all", methods = ['GET','POST'])
 def getAll():
@@ -143,4 +167,4 @@ def result():
     return render_template('image.html',path=prev_path, result1 = result_dic, result = user)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

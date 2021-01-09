@@ -1,37 +1,22 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Common Identity Finder</title>
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">  -->
-     
+
     <style>
-    body{
+        body{
       background: #373B44;  
       background: -webkit-linear-gradient(to right, #4286f4, #373B44);  
       background: linear-gradient(to right, #4286f4, #373B44);
       }
-      h1{
-        padding-top: 100px;
-        color:aliceblue;
-        text-align: center;
-      }
-      .image{
-        text-align: center;
-        padding-top: 20px;
-        padding-left: 60px;
-      }
-      
     </style>
-
 
 </head>
 <body>
@@ -43,39 +28,15 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="\home">Home</a>
-              <a class="nav-link active" aria-current="page" href="\all">Directory</a>
-              <a class="nav-link active" aria-current="page" href="\logout" >Log out</a>
-
             </div>
           </div>
         </div>
       </nav>
-   
-    <h1>Common Identifier </h1>
+      <h1>you have been logged out</h1>
 
-
-    <div class = "image">
-    <form action="/image" method = 'POST' enctype="multipart/form-data" >
-        <label for="img">Select image:</label>
-        <input type="file" id="img" name="img" accept="image/*"  ><br>
-        <img id = "output_image"/>
-        <br>
-        <button type = "submit" class = "btn btn-primary">submit</button>
-    </form>
-    </div>
+      <a class="nav-link active" href="\home1" style="text-align:center" style="margin-top: 900px" >
+        <button  class="btn btn-primary" >Go to Home</button>
+    </a>
     
-
-    <!-- {% if result %}
-    <div class="center" style = "text-align: center" > 
-      <img src = "{{path}}" width="250" height="250" >
-    </div>
-
-    <div style = "text-align: center"><h2>Result: <i> {{result['result']}} </i> </h2></div>
-    
-        {% for table in tables %}
-            {{ table|safe}}
-        {% endfor %}
-    {% endif %} -->
 </body>
 </html>
