@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request
 import pyrebase
-# from flask_ngrok import run_with_ngrok
+from flask_ngrok import run_with_ngrok
 import excel2json
 from flask import jsonify 
 import finalCode
@@ -9,7 +9,7 @@ import json
 from config import *
 
 app = Flask(__name__)
-# run_with_ngrok(app)
+run_with_ngrok(app)
 
 
 
@@ -55,6 +55,10 @@ def forget_password():
 @app.route('/', methods = ['GET'])
 def wait_for_result():
     return render_template('home1.html')
+
+@app.route('/home', methods=['GET'])
+def home():
+    return render_template('hello1.html')
 
 @app.route('/logout', methods =['GET'])
 def logout():
@@ -139,4 +143,4 @@ def result():
     return render_template('image.html',path=prev_path, result1 = result_dic, result = user)
 
 if __name__ == '__main__':
-    app.run(host="localhost", port = 8000, debug=True)
+    app.run()
