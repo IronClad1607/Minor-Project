@@ -42,6 +42,17 @@
         </div>
       </nav>
 
+      {% if not result %}
+      <div class="center" style = "text-align: center" > 
+        <h2>No such person exists in the database</h2>
+      </div>
+      
+      <a class="nav-link active" href="\image" style="text-align:center" style="padding-top: 20px">
+          <button  class="btn btn-primary" >Go Back</button>
+      </a>
+
+      {% endif %}
+
       {% if result %}  
 
     <div class="center" style = "text-align: center" > 
@@ -57,14 +68,14 @@
 </div> -->
 
     <div class="center" style = "text-align: center" > 
-      <h2>Name: {{result[0]["Name"]}}</h2>
-      <h2>Age: {{result[0]["Age"]}}</h2>
-      <h2>Place of Birth: {{result[0]["Place of Birth"]}}</h2>
+      <h2>Name: {{result[0]["name"]}}</h2>
+      <h2>Age: {{result[0]["age"]}}</h2>
+      <h2>Place of Birth: {{result[0]["place_of_birth"]}}</h2>
     </div>
     
     <a class="nav-link active" href="\image" style="text-align:center" style="padding-top: 20px">
         <button  class="btn btn-primary" >Go Back</button>
     </a>
-
+   
 </body>
 </html>

@@ -1,50 +1,178 @@
 [
     {
-        "Id": 0.0,
-        "Name": "Aamir Khan",
-        "Age": 55.0,
-        "Place of Birth": "Mumbai",
-        "Gender": "M",
-        "Marital Status": "Y"
+        "id": 0.0,
+        "name": "Akshita",
+        "age": 21.0,
+        "place_of_birth": "Dehradun",
+        "gender": "Female",
+        "martial_status": "No"
     },
     {
-        "Id": 1.0,
-        "Name": "Ishaan",
-        "Age": 21.0,
-        "Place of Birth": "New Delhi",
-        "Gender": "M",
-        "Marital Status": "N"
+        "id": 1.0,
+        "name": "Alisha",
+        "age": 21.0,
+        "place_of_birth": "Himachal Pradesh",
+        "gender": "Female",
+        "martial_status": "No"
     },
     {
-        "Id": 2.0,
-        "Name": "Salman",
-        "Age": 54.0,
-        "Place of Birth": "Indore",
-        "Gender": "M",
-        "Marital Status": "N"
+        "id": 2.0,
+        "name": "Anjali",
+        "age": 20.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Female",
+        "martial_status": "No"
     },
     {
-        "Id": 3.0,
-        "Name": "Sargam",
-        "Age": 22.0,
-        "Place of Birth": "Agra",
-        "Gender": "F",
-        "Marital Status": "N"
+        "id": 3.0,
+        "name": "Anurag",
+        "age": 19.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Male",
+        "martial_status": "No"
     },
     {
-        "Id": 4.0,
-        "Name": "Satvik",
-        "Age": 22.0,
-        "Place of Birth": "Vinukonda",
-        "Gender": "M",
-        "Marital Status": "N"
+        "id": 4.0,
+        "name": "Apoorva",
+        "age": 21.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Female",
+        "martial_status": "No"
     },
     {
-        "Id": 5.0,
-        "Name": "Shahrukh Khan",
-        "Age": 55.0,
-        "Place of Birth": "New Delhi",
-        "Gender": "M",
-        "Marital Status": "Y"
+        "id": 5.0,
+        "name": "Harshit Chaudhary",
+        "age": 21.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Male",
+        "martial_status": "No"
+    },
+    {
+        "id": 6.0,
+        "name": "Ishaan",
+        "age": 21.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Male",
+        "martial_status": "No"
+    },
+    {
+        "id": 7.0,
+        "name": "Muskan",
+        "age": 20.0,
+        "place_of_birth": "Ghaziabad",
+        "gender": "Female",
+        "martial_status": "No"
+    },
+    {
+        "id": 8.0,
+        "name": "Parth",
+        "age": 24.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Male",
+        "martial_status": "No"
+    },
+    {
+        "id": 9.0,
+        "name": "Pradhi",
+        "age": 23.0,
+        "place_of_birth": "Gaya, Bihar",
+        "gender": "Male",
+        "martial_status": "No"
+    },
+    {
+        "id": 10.0,
+        "name": "Radhika",
+        "age": 22.0,
+        "place_of_birth": "Ghaziabad",
+        "gender": "Female",
+        "martial_status": "No"
+    },
+    {
+        "id": 11.0,
+        "name": "Riddika",
+        "age": 19.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Female",
+        "martial_status": "No"
+    },
+    {
+        "id": 12.0,
+        "name": "Sargam",
+        "age": 22.0,
+        "place_of_birth": "Agra",
+        "gender": "Female",
+        "martial_status": "No"
+    },
+    {
+        "id": 13.0,
+        "name": "Satvik",
+        "age": 22.0,
+        "place_of_birth": "Vinukonda",
+        "gender": "Male",
+        "martial_status": "No"
+    },
+    {
+        "id": 14.0,
+        "name": "Sayantan",
+        "age": 21.0,
+        "place_of_birth": "Kolkata",
+        "gender": "Male",
+        "martial_status": "No"
+    },
+    {
+        "id": 15.0,
+        "name": "Sidhi",
+        "age": 22.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Female",
+        "martial_status": "No"
+    },
+    {
+        "id": 16.0,
+        "name": "Simran",
+        "age": 20.0,
+        "place_of_birth": "Varanasi",
+        "gender": "Female",
+        "martial_status": "No"
+    },
+    {
+        "id": 17.0,
+        "name": "Trishant",
+        "age": 21.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Male",
+        "martial_status": "No"
+    },
+    {
+        "id": 18.0,
+        "name": "Tushar",
+        "age": 20.0,
+        "place_of_birth": "Dwarka",
+        "gender": "Male",
+        "martial_status": "No"
+    },
+    {
+        "id": 19.0,
+        "name": "Vibhuti",
+        "age": 21.0,
+        "place_of_birth": "Mathura",
+        "gender": "Female",
+        "martial_status": "No"
+    },
+    {
+        "id": 20.0,
+        "name": "Vikas",
+        "age": 24.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Male",
+        "martial_status": "No"
+    },
+    {
+        "id": 21.0,
+        "name": "Vishant",
+        "age": 21.0,
+        "place_of_birth": "New Delhi",
+        "gender": "Male",
+        "martial_status": "No"
     }
 ]

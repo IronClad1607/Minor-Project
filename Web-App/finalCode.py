@@ -40,12 +40,14 @@ def predict(photo):
     p = Path("dataset111/") 
     dirs = p.glob("*")
     
-    label_dict = {0:"Aamir",1:"Ishaan", 2:"Salman",3:"Sargam",4:"Satvik",5:"Shahrukh"}
+    label_dict = {0:"Akshita",1:"Alisha",2:"Anjali",3:"Anurag",4:"Apoorva",5:"Harshit Chaudhary",6:"Ishaan",7:"Muskan",8:"Parth",9:"Pradhi", 10:"Radhika",11:"Riddika",12:"Sargam",13:"Satvik",14:"Sayantan",15:"Sidhi", 16:"Simran",17:"Trishant",18:"Tushar",19:"Vibhuti",20:"Vikas",21:"Vishant"}
     l = []
+    key_list = list(label_dict.keys())
+    val_list = list(label_dict.values())
     for folder_dir in dirs: #loops through the folders
         #label = str(folder_dir).split("\\")[-1]
         d = 10000
-        for img_path in folder_dir.glob("*.jpg"):  
+        for img_path in folder_dir.glob("*"):  
             
             img1 = image.load_img(photo)  
             img1 = image.img_to_array(img1) 
@@ -57,12 +59,25 @@ def predict(photo):
             #print(dist)
             if dist<d:
                 d = dist
+                if dist == 0:
+                    label = str(folder_dir).split("\\")[-1]
+                    pos = val_list.index(label)
+                    a = key_list[pos]
+                    Id = str(a)
+                    return Id 
              
         l.append(d)   
         minpos = l.index(min(l)) 
-        name_result = label_dict[minpos] 
+
+        if l[minpos] <= 0.32:
+            #name_result = label_dict[minpos]
+            Id = str(minpos)
+        else:
+            #name_result = "NA"
+            Id = str(-1)
+        #name_result = label_dict[minpos] 
         
-    return name_result
+    return Id
 
 
 # In[25]:

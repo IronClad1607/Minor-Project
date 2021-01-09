@@ -86,8 +86,7 @@ def home():
 
 @app.route('/logout', methods =['GET'])
 def logout():
-    # auth.signout()
-    return render_template('home1.html')
+    return render_template('logoutPage.html')
 
 @app.route("/all", methods = ['GET','POST'])
 def getAll():
@@ -160,7 +159,7 @@ def result():
     a = df.to_json(orient='records')
     jdata = json.loads(a) #python dictionary
 
-    user=list(filter(lambda u: str(u['Name'])== image_result, jdata)) # 
+    user=list(filter(lambda u: u['id'] == int(image_result), jdata)) # 
     # print(user[0]['Id'])
     # print(user[0]['Name'])
     # print(user[0]['Gender'])
