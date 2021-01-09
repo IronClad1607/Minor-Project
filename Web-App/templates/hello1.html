@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <title>Web-App</title>
   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -11,6 +12,8 @@
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
       body{
       background: #373B44;  
@@ -29,17 +32,16 @@
       
       }
       .center{
-        /* padding-top: 40px; */
         margin-top: 40px ;
         display: block; 
         margin-left: auto;
         margin-right: auto;
-      
       }
+      
     </style>
 </head>
 
-<body>
+
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Facial Recognition</a>
@@ -50,16 +52,24 @@
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="\">Home</a>
               <a class="nav-link active" aria-current="page" href="\image">Features</a>
-              <a class="nav-link active" aria-current="page" href="\logout">Logout</a>
+              <a class="nav-link active" aria-current="page" href="\all">All Users</a>
+              <a class="nav-link active" aria-current="page" href="\">Logout</a>
 
             </div>
           </div>
         </div>
       </nav>
 
-   <h1>UNIQUE IDENTIFICATION SYSTEM</h1>
-   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1LlXSnIb7zXet7eGOmB8brk8XujS2xgAopw&usqp=CAU" alt="Trulli" width="380" height="280" class = "center">
+   <h1 >UNIQUE IDENTIFICATION SYSTEM</h1>
+      <div  data-aos="flip-left"
+      data-aos-duration="2000">
+   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1LlXSnIb7zXet7eGOmB8brk8XujS2xgAopw&usqp=CAU" alt="Trulli" width="380" height="280" class = "center" data-aos="fade-down">
+  </div>
 
+
+  <script>
+    AOS.init();
+  </script>
 
 </body>
 </html>

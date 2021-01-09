@@ -37,31 +37,31 @@ def preprocess(img1,img2):
 
 def predict(photo):
     #p = Path("bollywood_celeb_faces_0/")
-    p = Path("dataset111/")
+    p = Path("dataset111/") 
     dirs = p.glob("*")
     
     label_dict = {0:"Aamir",1:"Ishaan", 2:"Salman",3:"Sargam",4:"Satvik",5:"Shahrukh"}
     l = []
-    for folder_dir in dirs:
+    for folder_dir in dirs: #loops through the folders
         #label = str(folder_dir).split("\\")[-1]
         d = 10000
-        for img_path in folder_dir.glob("*.jpg"):
+        for img_path in folder_dir.glob("*.jpg"):  
             
-            img1 = image.load_img(photo)
-            img1 = image.img_to_array(img1)
-            img2 = image.load_img(img_path)
+            img1 = image.load_img(photo)  
+            img1 = image.img_to_array(img1) 
+            img2 = image.load_img(img_path) 
             img2 = image.img_to_array(img2)
-            image1,image2 = preprocess(img1,img2)
-            x1,x2 = model.predict((image1,image2))
-            dist = spatial.distance.cosine(x1, x2)
+            image1,image2 = preprocess(img1,img2) 
+            x1,x2 = model.predict((image1,image2))  
+            dist = spatial.distance.cosine(x1, x2) 
             #print(dist)
             if dist<d:
                 d = dist
-            
-        l.append(d)
-        minpos = l.index(min(l))
-        name_result = label_dict[minpos]
-    
+             
+        l.append(d)   
+        minpos = l.index(min(l)) 
+        name_result = label_dict[minpos] 
+        
     return name_result
 
 

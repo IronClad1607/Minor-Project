@@ -5,21 +5,13 @@ import excel2json
 from flask import jsonify 
 import finalCode
 import pandas as pd
-import pandas
 import json
+from config import *
 
 app = Flask(__name__)
 # run_with_ngrok(app)
 
-firebaseConfig = {
-    "apiKey": "AIzaSyDji3NTUyMcEDssAeQPYwIPQ8BKzTHth0w",
-    "authDomain": "face-recognition-48ac3.firebaseapp.com",
-    "databaseURL": "https://face-recognition-48ac3.firebaseio.com"
-    "projectId" "face-recognition-48ac3",
-    "storageBucket": "face-recognition-48ac3.appspot.com",
-    "messagingSenderId": "499329851519",
-    "appId": "1:499329851519:web:5accb72e192a5f78f1df4a"
-  }
+
 
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
@@ -42,8 +34,12 @@ def signUp():
     if(request.method == 'POST'):
         email = request.form['name']
         password = request.form['password']
-        auth.create_user_with_email_and_password(email,password)
-        return render_template('login.html')
+        try:
+            auth.create_user_with_email_and_password(email,password)
+            return render_template('login.html')
+        except:
+            unsuccessful = 'already exist'
+            return render_template('signUp.html', umessage=unsuccessful)
     return render_template('signUp.html')
 
 @app.route('/forgot', methods = ['GET','POST'])
@@ -58,27 +54,47 @@ def forget_password():
 
 @app.route('/', methods = ['GET'])
 def wait_for_result():
-    return render_template('hello.html')
+    return render_template('home1.html')
 
 @app.route('/logout', methods =['GET'])
 def logout():
+    auth.signOut()
     return render_template('hello1.html')
 
-@app.route("/all", methods = ['GET', 'POST'])
+@app.route("/all", methods = ['GET','POST'])
 def getAll():
+    #df = pd.read_excel("test.xlsx")
+    #return render_template('base.html',tables=[df.to_html()],titles = ['na', 'Table'])
     df = pd.read_excel("test.xlsx")
-    return render_template('base.html',tables=[df.to_html()],titles = ['na', 'Table'])
+    a = excel2json.convert_from_file('test.xlsx')
+    a = df.to_json(orient='records')
+
+    jdata = json.loads(a)  
+    user = list(jdata)
+    
+
+
+    #print(i["Name"])
+    return render_template('allUser.html', result = user)
+
 
 @app.route("/allUser",methods= ['GET','POST'])
 def getAllUser():
     df = pd.read_excel("test.xlsx")
     a = excel2json.convert_from_file('test.xlsx')
     a = df.to_json(orient='records')
+
+    jdata = json.loads(a)
+    user = list(jdata)
+
+    #print(i["Name"])
     return a
     
+
 @app.route('/image', methods = ['GET'])
 def wait_for_image_result():
     return render_template('index.html')
+
 
 @app.route('/image', methods =['POST'])
 def result():
@@ -91,8 +107,8 @@ def result():
 
     prev_path = path
 
-    image_result = finalCode.predict(f)
-    user_final = "Sargam"
+    image_result = finalCode.predict(f) # name of persom
+   
     df = pd.read_excel("test.xlsx")
 
     result_dic = {
@@ -114,9 +130,9 @@ def result():
     
     #a = excel2json.convert_from_file('test.xlsx')
     a = df.to_json(orient='records')
-    jdata = json.loads(a)
+    jdata = json.loads(a) #python dictionary
 
-    user=list(filter(lambda u: str(u['Name'])== image_result, jdata))
+    user=list(filter(lambda u: str(u['Name'])== image_result, jdata)) # 
     # print(user[0]['Id'])
     # print(user[0]['Name'])
     # print(user[0]['Gender'])

@@ -9,21 +9,15 @@
     <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">   
-    
+    <!-- <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">   
+     -->
     <style>
         body{
         background: #373B44;  
         background: -webkit-linear-gradient(to right, #4286f4, #373B44);  
         background: linear-gradient(to right, #4286f4, #373B44);
-        }
-        /* #content{
-            text-align: center;
-            
-        } */
-        
-      </style>
-      
+        }   
+    </style>     
 </head>
 
 <body>
@@ -34,9 +28,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" href="\">Home</a>
-            <a class="nav-link active" href="\image">Features</a>
-            <a class="nav-link active" href="\login">Logout</a>
+            <a class="nav-link active" aria-current="page" href="\">Home</a>
+            <a class="nav-link active" aria-current="page" href="\image">Features</a>
+            <a class="nav-link active" aria-current="page" href="\login">Logout</a>
           </div>
         </div>
       </nav>
