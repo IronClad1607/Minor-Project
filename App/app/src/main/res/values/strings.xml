@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Common Identity Finder</string>
+    <string name="finder">Finder</string>
+    <string name="directory">Directory</string>
+    <string name="hash">#</string>
+    <string name="age">Age:</string>
+    <string name="gender">Gender:</string>
+    <string name="place_of_birth">Place of Birth:</string>
+    <string name="marital_status">Marital Status</string>
+    <string name="select_image">Select Image</string>
+    <string name="find_who_is_in_the_picture">Find, Who is in the Picture?</string>
+    <string name="todo">TODO</string>
+    <string name="please_while_the_system_search_for_the_person_n_please_don_t_press_back_or_home_button_while_process_in_going_on">Please wait, while the system search for the person. \nPlease don\'t press back or home button, while process in going on.</string>
+    <string name="result">Result</string>
+    <string name="email_id">Email Id</string>
+    <string name="password">Password</string>
+    <string name="login_sign_up">Login/ Sign up</string>
+    <string name="profile">Profile</string>
+    <string name="logged_in_through">Logged in through</string>
+    <string name="log_out">Log out</string>
+</resources>
