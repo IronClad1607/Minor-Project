@@ -1,10 +1,9 @@
 package com.ironclad.api.services
 
 import com.ironclad.api.models.entities.User
-import com.ironclad.api.models.response.AllUserResponse
+import okhttp3.MultipartBody
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface CAFService {
 
@@ -15,4 +14,10 @@ interface CAFService {
     suspend fun getUserById(
         @Path("id") id: Int
     ): Response<User>
+
+    @Multipart
+    @POST("/fetchResult")
+    suspend fun getResult(
+        @Part("img") img: MultipartBody.Part
+    ): Response<List<User>>
 }
