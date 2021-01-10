@@ -75,6 +75,7 @@
         android:id="@+id/tvAgeHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/age"
@@ -100,6 +101,7 @@
         android:id="@+id/tvGenderHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/gender"
@@ -125,6 +127,7 @@
         android:id="@+id/tvPOBHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/place_of_birth"
@@ -150,6 +153,7 @@
         android:id="@+id/tvMSHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/roboto_bold"
@@ -167,11 +171,11 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/roboto"
-        android:text="Yes"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/tvMSHeading"
-        app:layout_constraintTop_toBottomOf="@id/tvPOB" />
+        app:layout_constraintTop_toBottomOf="@id/tvPOB"
+        tools:text="Yes" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
