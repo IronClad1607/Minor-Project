@@ -132,8 +132,7 @@ def result():
         f.save(path)
 
     prev_path = path
-
-    image_result = finalCode.predict(f) # name of persom
+    image_result = finalCode.predict(f) # name of person
    
     df = pd.read_excel("test.xlsx")
 
@@ -147,8 +146,10 @@ def result():
     jdata = json.loads(a) #python dictionary
 
     user=list(filter(lambda u: u['id'] == int(image_result), jdata)) # 
-   
-    return render_template('image.html',path=prev_path, result1 = result_dic, result = user)
+    if user:
+        return render_template('image.html',path=prev_path, result1 = result_dic, result = user)
+    else:
+        return render_template('na.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="localhost", port=8000,debug=True)

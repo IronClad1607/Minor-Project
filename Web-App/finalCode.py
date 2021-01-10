@@ -38,7 +38,23 @@ def preprocess(img1,img2):
 
 #     path = './static/{}'.format(photo)
 #     img = cv2.imread(path)
-#     #gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+#     faces = face_cascade.detectMultiScale(img, 1.3, 5)
+#     for (x,y,w,h) in faces:
+#         cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,255),2)
+
+#         offset = 10
+#         face_section = img[y-offset:y+h+offset,x-offset:x+w+offset]
+#         face_section = cv2.resize(face_section,(224,224))
+        
+#     return face_section
+
+# def frontFace_db(photo):
+#     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+#     img1 = image.load_img(photo)
+#     img = cv2.imread(img1)
+#     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 #     faces = face_cascade.detectMultiScale(img, 1.3, 5)
 #     for (x,y,w,h) in faces:
@@ -69,10 +85,10 @@ def predict(photo):
         for img_path in folder_dir.glob("*"):  
             
             img1 = image.load_img(photo)
-            #img1 = frontFace(photo)  
+            # img1 = frontFace_db(photo)  
             img1 = image.img_to_array(img1) 
             img2 = image.load_img(img_path)
-            #img2 = frontFace(img_path) 
+            #img2 = frontFace_db(img_path) 
             img2 = image.img_to_array(img2)
             image1,image2 = preprocess(img1,img2) 
             x1,x2 = model.predict((image1,image2))  
@@ -89,8 +105,9 @@ def predict(photo):
              
         l.append(d)   
         minpos = l.index(min(l)) 
+        #print(l)
 
-        if l[minpos] <= 0.32:
+        if l[minpos] == 0:
             #name_result = label_dict[minpos]
             Id = str(minpos)
         else:
