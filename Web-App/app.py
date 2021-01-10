@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request
 import pyrebase
-# from flask_ngrok import run_with_ngrok
+from flask_ngrok import run_with_ngrok
 import excel2json
 from flask import jsonify 
 import finalCode
@@ -9,7 +9,7 @@ import json
 from config import *
 
 app = Flask(__name__)
-# run_with_ngrok(app)
+run_with_ngrok(app)
 
 
 
@@ -152,4 +152,4 @@ def result():
         return render_template('na.html')
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=8000,debug=True)
+    app.run()
