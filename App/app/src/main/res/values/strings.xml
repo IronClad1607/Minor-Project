@@ -9,4 +9,6 @@
     <string name="marital_status">Marital Status</string>
     <string name="select_image">Select Image</string>
     <string name="find_who_is_in_the_picture">Find, Who is in the Picture?</string>
+    <string name="todo">TODO</string>
+    <string name="please_while_the_system_search_for_the_person_n_please_don_t_press_back_or_home_button_while_process_in_going_on">Please, while the system search for the person. \n Please don\'t press back or home button, while process in going on.</string>
 </resources>

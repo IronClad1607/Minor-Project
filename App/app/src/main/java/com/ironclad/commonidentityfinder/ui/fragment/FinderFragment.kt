@@ -11,7 +11,9 @@ import android.view.ViewGroup
 import androidx.core.net.toFile
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.ironclad.commonidentityfinder.data.User
 import com.ironclad.commonidentityfinder.databinding.FragmentFinderBinding
 import com.ironclad.commonidentityfinder.ui.viewmodels.FinderViewModel
 import com.theartofdev.edmodo.cropper.CropImage
@@ -69,6 +71,22 @@ class FinderFragment : Fragment() {
                 btnSubmit.isClickable = false
             }
             viewModel.getResult(filePart)
+            binding?.fragmentView?.alpha = 0.4f
+            binding?.progressDialog?.visibility = View.VISIBLE
+            viewModel.user.observe({ lifecycle }) {
+                Log.d("Ishaan", "Fragment: $it")
+                binding?.progressDialog?.visibility = View.GONE
+                binding?.fragmentView?.alpha = 1F
+                val user = User(
+                    it[0].age,
+                    it[0].gender,
+                    it[0].id,
+                    it[0].maritalStatus,
+                    it[0].name,
+                    it[0].placeOfBirth
+                )
+                findNavController().navigate(FinderFragmentDirections.goToDetails(user))
+            }
         }
     }
 

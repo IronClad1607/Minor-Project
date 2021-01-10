@@ -16,7 +16,7 @@ object CAFClient {
 
 
     private val retrofitBuilder = Retrofit.Builder()
-        .baseUrl("http://56910d16c31e.ngrok.io/")
+        .baseUrl("http://dcdea3968432.ngrok.io/")
         .addConverterFactory(MoshiConverterFactory.create())
         .client(client)
         .build()
