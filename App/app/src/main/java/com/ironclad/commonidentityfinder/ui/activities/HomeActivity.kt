@@ -7,8 +7,10 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.google.android.material.tabs.TabLayout
+import com.ironclad.commonidentityfinder.NavHomeDirections
 import com.ironclad.commonidentityfinder.R
 import com.ironclad.commonidentityfinder.databinding.ActivityHomeBinding
+import com.ironclad.commonidentityfinder.ui.fragment.DirectoryFragmentDirections
 import com.ironclad.commonidentityfinder.utils.Constants.Companion.SCREEN_TAG
 
 class HomeActivity : AppCompatActivity() {
@@ -24,13 +26,17 @@ class HomeActivity : AppCompatActivity() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
                     0 -> {
-                        Log.d(SCREEN_TAG,"Going to finder")
-                        findNavController(R.id.container).navigate(R.id.goToFinder)
+                        Log.d(SCREEN_TAG, "Going to finder")
+                        findNavController(R.id.container).navigate(NavHomeDirections.goToFinder())
                     }
 
                     1 -> {
-                        Log.d(SCREEN_TAG,"Going to directory")
-                        findNavController(R.id.container).navigate(R.id.goToDirectory)
+                        Log.d(SCREEN_TAG, "Going to directory")
+                        findNavController(R.id.container).navigate(NavHomeDirections.goToDirectory())
+                    }
+                    2 -> {
+                        Log.d(SCREEN_TAG, "Going to profile")
+                        findNavController(R.id.container).navigate(NavHomeDirections.goToProfile())
                     }
                 }
             }

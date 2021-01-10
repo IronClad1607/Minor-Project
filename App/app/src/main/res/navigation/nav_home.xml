@@ -12,13 +12,6 @@
         tools:layout="@layout/fragment_finder">
 
         <action
-            android:id="@+id/goToDirectory"
-            app:destination="@id/directoryFragment"
-            app:enterAnim="@anim/nav_default_pop_enter_anim"
-            app:exitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@id/nav_home" />
-
-        <action
             android:id="@+id/goToDetailsFinder"
             app:destination="@id/bottomSheetDetails" />
     </fragment>
@@ -28,12 +21,6 @@
         android:name="com.ironclad.commonidentityfinder.ui.fragment.DirectoryFragment"
         android:label="Directory Fragment"
         tools:layout="@layout/fragment_directory">
-        <action
-            android:id="@+id/goToFinder"
-            app:destination="@id/finderFragment"
-            app:enterAnim="@anim/nav_default_pop_enter_anim"
-            app:exitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@id/nav_home" />
 
         <action
             android:id="@+id/goToDetailsDirectory"
@@ -51,5 +38,30 @@
             app:argType="com.ironclad.commonidentityfinder.data.User" />
     </dialog>
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ironclad.commonidentityfinder.ui.fragment.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
 
+    <action
+        android:id="@+id/goToDirectory"
+        app:destination="@id/directoryFragment"
+        app:enterAnim="@anim/nav_default_pop_enter_anim"
+        app:exitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/nav_home" />
+
+    <action
+        android:id="@+id/goToFinder"
+        app:destination="@id/finderFragment"
+        app:enterAnim="@anim/nav_default_pop_enter_anim"
+        app:exitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/nav_home" />
+
+    <action
+        android:id="@+id/goToProfile"
+        app:destination="@id/profileFragment"
+        app:enterAnim="@anim/nav_default_pop_enter_anim"
+        app:exitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/nav_home" />
 </navigation>
