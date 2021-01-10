@@ -9,18 +9,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ironclad.api.models.entities.User
 import com.ironclad.commonidentityfinder.databinding.ListItemDirectoryBinding
 
-class DirectoryAdapter : ListAdapter<User, DirectoryAdapter.DirectoryViewHolder>(
-    object : DiffUtil.ItemCallback<User>() {
-        override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
-            return oldItem == newItem
-        }
+class DirectoryAdapter(val clickListener: (com.ironclad.commonidentityfinder.data.User) -> Unit) :
+    ListAdapter<User, DirectoryAdapter.DirectoryViewHolder>(
+        object : DiffUtil.ItemCallback<User>() {
+            override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
+                return oldItem == newItem
+            }
 
-        override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
-            return oldItem.toString() == newItem.toString()
-        }
+            override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
+                return oldItem.toString() == newItem.toString()
+            }
 
-    }
-) {
+        }
+    ) {
     inner class DirectoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DirectoryViewHolder {
@@ -33,7 +34,16 @@ class DirectoryAdapter : ListAdapter<User, DirectoryAdapter.DirectoryViewHolder>
     override fun onBindViewHolder(holder: DirectoryViewHolder, position: Int) {
         ListItemDirectoryBinding.bind(holder.itemView).apply {
             val user = getItem(position)
-
+            val userTO = com.ironclad.commonidentityfinder.data.User(
+                "directory",
+                user.age,
+                user.gender,
+                user.id,
+                user.maritalStatus,
+                user.name,
+                user.placeOfBirth,
+                user.imageUrl
+            )
             val id = user.id ?: -1
 
             tvId.text = (id + 1).toString()
@@ -42,6 +52,9 @@ class DirectoryAdapter : ListAdapter<User, DirectoryAdapter.DirectoryViewHolder>
             tvGender.text = user.gender
             tvPOB.text = user.placeOfBirth
             tvMS.text = user.maritalStatus
+            ivArrow.setOnClickListener {
+                clickListener(userTO)
+            }
         }
     }
 }

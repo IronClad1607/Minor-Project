@@ -94,7 +94,7 @@ class FinderFragment : Fragment() {
                     imageURI.toString()
                 )
                 Log.d(Constants.SCREEN_TAG, "Going to bottom sheet")
-                findNavController().navigate(FinderFragmentDirections.goToDetails(user))
+                findNavController().navigate(FinderFragmentDirections.goToDetailsFinder(user))
             }
         }
     }
