@@ -64,9 +64,7 @@ def fetchResult():
     user_final = "Sargam"
     df = pd.read_excel("test.xlsx")
 
-    #selected_user = df[df["Name"] == user_final]
-    #dataf = pd.DataFrame({'Id': selected_user["Id"], 'Name': selected_user["Name"], 'Age': selected_user["Age"], 'Place of Birth': s
-    #a = excel2json.convert_from_file('test.xlsx')
+   
     a = df.to_json(orient='records')
     jdata = json.loads(a)
 
@@ -79,19 +77,21 @@ def fetchResult():
 @app.route('/', methods = ['GET'])
 def wait_for_result():
     return render_template('home1.html')
+    
 
 @app.route('/home', methods=['GET'])
 def home():
     return render_template('hello1.html')
 
+
 @app.route('/logout', methods =['GET'])
 def logout():
     return render_template('logoutPage.html')
 
+
 @app.route("/all", methods = ['GET','POST'])
 def getAll():
-    #df = pd.read_excel("test.xlsx")
-    #return render_template('base.html',tables=[df.to_html()],titles = ['na', 'Table'])
+  
     df = pd.read_excel("test.xlsx")
     a = excel2json.convert_from_file('test.xlsx')
     a = df.to_json(orient='records')
@@ -101,7 +101,6 @@ def getAll():
     
 
 
-    #print(i["Name"])
     return render_template('allUser.html', result = user)
 
 
@@ -114,7 +113,7 @@ def getAllUser():
     jdata = json.loads(a)
     user = list(jdata)
 
-    #print(i["Name"])
+   
     return a
     
 
@@ -143,26 +142,12 @@ def result():
         'result': image_result
     }
 
-    #selected_user = df[df["Name"] == image_result]
-    #dataf = pd.DataFrame({'Name': selected_user["Name"]})
-    #dataf = pd.DataFrame({'Id': selected_user["Id"], 'Name': selected_user["Name"], 'Place of  Birth': selected_user["Place of Birth"], 'Gender': selected_user["Gender"]})
-
-
-    #return render_template('image.html',path=prev_path, result = result_dic, tables=[dataf.to_html()])
-
-    #Different Method
-
-    #selected_user = df[df["Name"] == user_final]
-    #dataf = pd.DataFrame({'Id': selected_user["Id"], 'Name': selected_user["Name"], 'Age': selected_user["Age"], 'Place of Birth': selected_user["Place of Birth"], 'Gender': selected_user["Gender"], 'Marital Status': selected_user["Marital Status"],}) 
-    
-    #a = excel2json.convert_from_file('test.xlsx')
+   
     a = df.to_json(orient='records')
     jdata = json.loads(a) #python dictionary
 
     user=list(filter(lambda u: u['id'] == int(image_result), jdata)) # 
-    # print(user[0]['Id'])
-    # print(user[0]['Name'])
-    # print(user[0]['Gender'])
+   
     return render_template('image.html',path=prev_path, result1 = result_dic, result = user)
 
 if __name__ == '__main__':
