@@ -7,26 +7,37 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ironclad.commonidentityfinder.databinding.FragmentDirectoryBinding
+import com.ironclad.commonidentityfinder.ui.adapter.DirectoryAdapter
 import com.ironclad.commonidentityfinder.ui.viewmodels.DirectoryViewModel
 
 class DirectoryFragment : Fragment() {
     private var binding: FragmentDirectoryBinding? = null
     private lateinit var viewModel: DirectoryViewModel
+    private lateinit var mAdapter: DirectoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //TODO create layout file
-        //TODO create adapter
+
         binding = FragmentDirectoryBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(DirectoryViewModel::class.java)
-        viewModel.getAllUsers()
-        viewModel.allUser.observe({lifecycle}){
-            Log.d("Ishaan","$it")
+        mAdapter = DirectoryAdapter()
+
+        binding?.rvDirectory?.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = mAdapter
         }
+
+        viewModel.getAllUsers()
+        viewModel.allUser.observe({ lifecycle }) {
+            Log.d("Ishaan", "$it")
+            mAdapter.submitList(it)
+        }
+
         return binding?.root
     }
 

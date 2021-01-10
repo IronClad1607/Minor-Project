@@ -14,12 +14,26 @@ class DirectoryViewModel : ViewModel() {
     private val _allUsers = MutableLiveData<List<User>>()
     val allUser: LiveData<List<User>> = _allUsers
 
+    private val _user = MutableLiveData<User>()
+    val user: LiveData<User> = _user
+
     fun getAllUsers() = viewModelScope.launch {
-        Log.d("Ishaan", "Scope opened")
+        Log.d("Ishaan", "All User: Scope opened")
 
         withContext(Dispatchers.IO) {
             val users = CafRepo.getAllUsers()
+            Log.d("Ishaan", "value set")
             _allUsers.postValue(users)
+        }
+    }
+
+    fun getParticularUser(id: Int) = viewModelScope.launch {
+        Log.d("Ishaan", "Particular: Scope opened")
+
+        withContext(Dispatchers.IO) {
+            val user = CafRepo.getUserById(id)
+            Log.d("Ishaan", "value set")
+            _user.postValue(user)
         }
     }
 }

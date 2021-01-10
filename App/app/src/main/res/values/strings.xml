@@ -2,4 +2,9 @@
     <string name="app_name">Common Identity Finder</string>
     <string name="finder">Finder</string>
     <string name="directory">Directory</string>
+    <string name="hash">#</string>
+    <string name="age">Age:</string>
+    <string name="gender">Gender:</string>
+    <string name="place_of_birth">Place of Birth:</string>
+    <string name="marital_status">Marital Status</string>
 </resources>
