@@ -3,7 +3,6 @@
 
 # In[1]:
 
-
 from keras.models import Model, load_model
 import numpy as np
 from keras.preprocessing import image
@@ -11,6 +10,7 @@ from scipy import spatial
 from pathlib import Path
 from tensorflow import keras
 import cv2
+import random
 # In[12]:
 
 
@@ -33,7 +33,22 @@ def preprocess(img1,img2):
 
 
 # In[30]:
+# def frontFace(photo):
+#     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
+#     path = './static/{}'.format(photo)
+#     img = cv2.imread(path)
+#     #gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+#     faces = face_cascade.detectMultiScale(img, 1.3, 5)
+#     for (x,y,w,h) in faces:
+#         #cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,255),2)
+
+#         offset = 10
+#         face_section = img[y-offset:y+h+offset,x-offset:x+w+offset]
+#         face_section = cv2.resize(face_section,(224,224))
+        
+#     return face_section
 
 def predict(photo):
     #p = Path("bollywood_celeb_faces_0/")
@@ -42,16 +57,22 @@ def predict(photo):
     
     label_dict = {0:"Akshita",1:"Alisha",2:"Anjali",3:"Anurag",4:"Apoorva",5:"Harshit Chaudhary",6:"Ishaan",7:"Muskan",8:"Parth",9:"Pradhi", 10:"Radhika",11:"Riddika",12:"Sargam",13:"Satvik",14:"Sayantan",15:"Sidhi", 16:"Simran",17:"Trishant",18:"Tushar",19:"Vibhuti",20:"Vikas",21:"Vishant"}
     l = []
+    folder_list = []
     key_list = list(label_dict.keys())
     val_list = list(label_dict.values())
     for folder_dir in dirs: #loops through the folders
+        folder_list.append(folder_dir)
         #label = str(folder_dir).split("\\")[-1]
+    random.shuffle(folder_list)
+    for folder_dir in folder_list:
         d = 10000
         for img_path in folder_dir.glob("*"):  
             
-            img1 = image.load_img(photo)  
+            img1 = image.load_img(photo)
+            #img1 = frontFace(photo)  
             img1 = image.img_to_array(img1) 
-            img2 = image.load_img(img_path) 
+            img2 = image.load_img(img_path)
+            #img2 = frontFace(img_path) 
             img2 = image.img_to_array(img2)
             image1,image2 = preprocess(img1,img2) 
             x1,x2 = model.predict((image1,image2))  
