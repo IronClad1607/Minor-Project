@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request
 import pyrebase
-# from flask_ngrok import run_with_ngrok
+from flask_ngrok import run_with_ngrok
 import excel2json
 from flask import jsonify 
 import finalCode
@@ -9,7 +9,7 @@ import json
 from config import *
 
 app = Flask(__name__)
-# run_with_ngrok(app)
+run_with_ngrok(app)
 
 
 
@@ -61,18 +61,16 @@ def fetchResult():
         f.save(path)
 
     image_result = finalCode.predict(f)
-    user_final = "Sargam"
     df = pd.read_excel("test.xlsx")
 
    
     a = df.to_json(orient='records')
     jdata = json.loads(a)
-
-    user=list(filter(lambda u: str(u['Name'])== image_result, jdata))
+    user=list(filter(lambda u: str(u['id'])== image_result, jdata))
     
     return jsonify(user)
 
-    #return render_template('index.html',result=image_result, tables=[dataf.to_html()])
+
 
 @app.route('/', methods = ['GET'])
 def wait_for_result():
@@ -98,24 +96,28 @@ def getAll():
 
     jdata = json.loads(a)  
     user = list(jdata)
-    
-
-
     return render_template('allUser.html', result = user)
+
 
 
 @app.route("/allUser",methods= ['GET','POST'])
 def getAllUser():
     df = pd.read_excel("test.xlsx")
-    a = excel2json.convert_from_file('test.xlsx')
     a = df.to_json(orient='records')
-
-    jdata = json.loads(a)
-    user = list(jdata)
-
-   
-    return a
+    jd = json.loads(a)
+    return jsonify(jd)
     
+
+@app.route('/allUser/<id>')
+def getUser(id):
+    df = pd.read_excel("test.xlsx")
+    a = df.to_json(orient='records')
+    jdata = json.loads(a)
+
+    user=list(filter(lambda u: str(u['id'])== id, jdata))
+    
+    return jsonify(user)
+
 
 @app.route('/image', methods = ['GET'])
 def wait_for_image_result():
@@ -146,9 +148,9 @@ def result():
     a = df.to_json(orient='records')
     jdata = json.loads(a) #python dictionary
 
-    user=list(filter(lambda u: u['id'] == int(image_result), jdata)) # 
+    user=list(filter(lambda u: u['id'] == int(image_result), jdata)) 
    
     return render_template('image.html',path=prev_path, result1 = result_dic, result = user)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
