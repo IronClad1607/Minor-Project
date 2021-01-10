@@ -5,14 +5,50 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Directory"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <TextView
+        android:id="@+id/tvHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_heading"
+        android:elevation="2dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/directory"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/underline_blue"
+        app:layout_constraintBottom_toBottomOf="@id/tvHeading"
+        app:layout_constraintEnd_toEndOf="@id/tvHeading"
+        app:layout_constraintStart_toStartOf="@id/tvHeading" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDirectory"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/tvHeading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
