@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ironclad.commonidentityfinder.data.User
 import com.ironclad.commonidentityfinder.databinding.FragmentDirectoryBinding
 import com.ironclad.commonidentityfinder.ui.adapter.DirectoryAdapter
 import com.ironclad.commonidentityfinder.ui.viewmodels.DirectoryViewModel
@@ -25,7 +27,7 @@ class DirectoryFragment : Fragment() {
 
         binding = FragmentDirectoryBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(DirectoryViewModel::class.java)
-        mAdapter = DirectoryAdapter()
+        mAdapter = DirectoryAdapter { user: User -> userClicked(user) }
 
         binding?.rvDirectory?.apply {
             layoutManager = LinearLayoutManager(context)
@@ -39,6 +41,10 @@ class DirectoryFragment : Fragment() {
         }
 
         return binding?.root
+    }
+
+    private fun userClicked(user: User) {
+        findNavController().navigate(DirectoryFragmentDirections.goToDetailsDirectory(user))
     }
 
     override fun onDestroyView() {

@@ -19,7 +19,7 @@
             app:popUpTo="@id/nav_home" />
 
         <action
-            android:id="@+id/goToDetails"
+            android:id="@+id/goToDetailsFinder"
             app:destination="@id/bottomSheetDetails" />
     </fragment>
 
@@ -34,6 +34,10 @@
             app:enterAnim="@anim/nav_default_pop_enter_anim"
             app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/nav_home" />
+
+        <action
+            android:id="@+id/goToDetailsDirectory"
+            app:destination="@id/bottomSheetDetails" />
     </fragment>
 
     <dialog

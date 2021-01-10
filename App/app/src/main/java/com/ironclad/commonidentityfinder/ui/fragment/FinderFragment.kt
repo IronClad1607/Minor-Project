@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide
 import com.ironclad.commonidentityfinder.data.User
 import com.ironclad.commonidentityfinder.databinding.FragmentFinderBinding
 import com.ironclad.commonidentityfinder.ui.viewmodels.FinderViewModel
+import com.ironclad.commonidentityfinder.utils.Constants
 import com.theartofdev.edmodo.cropper.CropImage
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -75,18 +76,25 @@ class FinderFragment : Fragment() {
             binding?.progressDialog?.visibility = View.VISIBLE
             viewModel.user.observe({ lifecycle }) {
                 Log.d("Ishaan", "Fragment: $it")
-                binding?.progressDialog?.visibility = View.GONE
-                binding?.fragmentView?.alpha = 1F
+                binding?.apply {
+                    progressDialog.visibility = View.GONE
+                    fragmentView.alpha = 1F
+                    btnSelect.isClickable = true
+                    btnSubmit.isClickable = true
+                }
+
                 val user = User(
+                    "finder",
                     it[0].age,
                     it[0].gender,
                     it[0].id,
                     it[0].maritalStatus,
                     it[0].name,
                     it[0].placeOfBirth,
-                    it[0].imageUrl
+                    imageURI.toString()
                 )
-                findNavController().navigate(FinderFragmentDirections.goToDetails(user))
+                Log.d(Constants.SCREEN_TAG, "Going to bottom sheet")
+                findNavController().navigate(FinderFragmentDirections.goToDetailsFinder(user))
             }
         }
     }

@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id "androidx.navigation.safeargs.kotlin"
     id "kotlin-android-extensions"
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -77,4 +78,7 @@ dependencies {
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'com.otaliastudios:cameraview:2.6.4'
 
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-auth-ktx'
 }

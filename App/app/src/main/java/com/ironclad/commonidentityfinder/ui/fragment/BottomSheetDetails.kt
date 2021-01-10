@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -24,7 +25,13 @@ class BottomSheetDetails : BottomSheetDialogFragment() {
         val user = args.user
         Log.d("Ishaan", "$user")
 
-        Glide.with(this).load(user.imageUrl).into(binding.ivSelect)
+        if (user.from?.equals("finder") == true) {
+            Glide.with(this).load(user.imageUrl?.toUri()).into(binding.ivSelect)
+        } else {
+            binding.tvHeading.visibility = View.GONE
+            binding.viewUnderline.visibility = View.GONE
+            Glide.with(this).load(user.imageUrl).into(binding.ivSelect)
+        }
 
         binding.apply {
             tvName.text = user.name
