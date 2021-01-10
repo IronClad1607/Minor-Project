@@ -18,6 +18,6 @@ interface CAFService {
     @Multipart
     @POST("/fetchResult")
     suspend fun getResult(
-        @Part("img") img: MultipartBody.Part
+        @Part img: MultipartBody.Part
     ): Response<List<User>>
 }

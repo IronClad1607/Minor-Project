@@ -22,7 +22,7 @@ class FinderViewModel : ViewModel() {
 
         withContext(Dispatchers.IO) {
             val user = CafRepo.getResult(img)
-            Log.d("Ishaan", "value set")
+            Log.d("Ishaan", "value set: $user")
             _users.postValue(user)
         }
     }
