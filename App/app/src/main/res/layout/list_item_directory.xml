@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
+    android:layout_margin="10dp"
     android:backgroundTint="@color/colorGray"
     app:cardCornerRadius="@dimen/card_corner_radius"
     app:cardElevation="@dimen/card_elevation">
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.65" />
+            app:layout_constraintGuide_percent="0.4" />
 
         <TextView
             android:id="@+id/hash"
@@ -101,8 +101,8 @@
             android:text="@string/gender"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/divGuideline"
-            app:layout_constraintTop_toBottomOf="@id/hash" />
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/tvAgeHeading" />
 
         <TextView
             android:id="@+id/tvGender"
@@ -114,7 +114,7 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@id/tvGenderHeading"
-            app:layout_constraintTop_toBottomOf="@id/hash"
+            app:layout_constraintTop_toBottomOf="@id/tvAge"
             tools:text="Female" />
 
         <TextView
@@ -122,14 +122,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto_bold"
             android:text="@string/place_of_birth"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/startGuideline"
-            app:layout_constraintTop_toBottomOf="@id/tvAgeHeading" />
+            app:layout_constraintStart_toStartOf="@id/divGuideline"
+            app:layout_constraintTop_toBottomOf="@id/hash" />
 
         <TextView
             android:id="@+id/tvPOB"
@@ -137,13 +135,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvPOBHeading"
-            app:layout_constraintTop_toBottomOf="@id/tvAge"
+            app:layout_constraintTop_toBottomOf="@id/hash"
             tools:text="Himachal Pradesh" />
 
         <TextView
@@ -158,7 +154,7 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/divGuideline"
-            app:layout_constraintTop_toBottomOf="@id/tvGenderHeading" />
+            app:layout_constraintTop_toBottomOf="@id/tvPOBHeading" />
 
         <TextView
             android:id="@+id/tvMS"
@@ -168,12 +164,12 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/roboto"
+            android:text="Yes"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvMSHeading"
-            app:layout_constraintTop_toBottomOf="@id/tvGender"
-            tools:text="Yes" />
+            app:layout_constraintTop_toBottomOf="@id/tvPOB" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
