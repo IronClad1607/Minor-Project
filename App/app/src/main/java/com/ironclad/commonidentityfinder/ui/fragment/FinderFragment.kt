@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide
 import com.ironclad.commonidentityfinder.data.User
 import com.ironclad.commonidentityfinder.databinding.FragmentFinderBinding
 import com.ironclad.commonidentityfinder.ui.viewmodels.FinderViewModel
+import com.ironclad.commonidentityfinder.utils.Constants
 import com.theartofdev.edmodo.cropper.CropImage
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -86,6 +87,7 @@ class FinderFragment : Fragment() {
                     it[0].placeOfBirth,
                     it[0].imageUrl
                 )
+                Log.d(Constants.SCREEN_TAG, "Going to bottom sheet")
                 findNavController().navigate(FinderFragmentDirections.goToDetails(user))
             }
         }
