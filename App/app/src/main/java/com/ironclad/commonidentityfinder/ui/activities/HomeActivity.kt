@@ -1,7 +1,9 @@
 package com.ironclad.commonidentityfinder.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -11,6 +13,7 @@ import com.ironclad.commonidentityfinder.NavHomeDirections
 import com.ironclad.commonidentityfinder.R
 import com.ironclad.commonidentityfinder.databinding.ActivityHomeBinding
 import com.ironclad.commonidentityfinder.ui.fragment.DirectoryFragmentDirections
+import com.ironclad.commonidentityfinder.utils.Constants.Companion.LOGIN_DELAY
 import com.ironclad.commonidentityfinder.utils.Constants.Companion.SCREEN_TAG
 
 class HomeActivity : AppCompatActivity() {
@@ -48,6 +51,13 @@ class HomeActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    fun logOutIntent() {
+        Handler().postDelayed({
+            val logoutIntent = Intent(this, LoginActivity::class.java)
+            startActivity(logoutIntent)
+        }, LOGIN_DELAY)
     }
 
     override fun onBackPressed() {
