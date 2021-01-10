@@ -17,5 +17,7 @@ data class User(
     @Json(name = "name")
     val name: String?,
     @Json(name = "place_of_birth")
-    val placeOfBirth: String?
+    val placeOfBirth: String?,
+    @Json(name = "image_url")
+    val imageUrl: String?
 )

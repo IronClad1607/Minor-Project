@@ -10,12 +10,17 @@
         android:name="com.ironclad.commonidentityfinder.ui.fragment.FinderFragment"
         android:label="Finder Fragment"
         tools:layout="@layout/fragment_finder">
+
         <action
             android:id="@+id/goToDirectory"
             app:destination="@id/directoryFragment"
             app:enterAnim="@anim/nav_default_pop_enter_anim"
             app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/nav_home" />
+
+        <action
+            android:id="@+id/goToDetails"
+            app:destination="@id/bottomSheetDetails" />
     </fragment>
 
     <fragment
@@ -30,6 +35,17 @@
             app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/nav_home" />
     </fragment>
+
+    <dialog
+        android:id="@+id/bottomSheetDetails"
+        android:name="com.ironclad.commonidentityfinder.ui.fragment.BottomSheetDetails"
+        android:label="BottomSheetDetails"
+        tools:layout="@layout/bottom_sheet_details">
+
+        <argument
+            android:name="user"
+            app:argType="com.ironclad.commonidentityfinder.data.User" />
+    </dialog>
 
 
 </navigation>
