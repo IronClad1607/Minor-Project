@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.ironclad.commonidentityfinder.databinding.BottomSheetDetailsBinding
 
@@ -22,6 +23,16 @@ class BottomSheetDetails : BottomSheetDialogFragment() {
         binding = BottomSheetDetailsBinding.inflate(inflater, container, false)
         val user = args.user
         Log.d("Ishaan", "$user")
+
+        Glide.with(this).load(user.imageUrl).into(binding.ivSelect)
+
+        binding.apply {
+            tvName.text = user.name
+            tvAge.text = user.age.toString()
+            tvGender.text = user.gender
+            tvMS.text = user.maritalStatus
+            tvPOB.text = user.placeOfBirth
+        }
         return binding.root
     }
 }

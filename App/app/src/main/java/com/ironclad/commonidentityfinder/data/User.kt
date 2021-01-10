@@ -10,5 +10,6 @@ data class User(
     val id: Int?,
     val maritalStatus: String?,
     val name: String?,
-    val placeOfBirth: String?
+    val placeOfBirth: String?,
+    val imageUrl: String?
 ) : Parcelable

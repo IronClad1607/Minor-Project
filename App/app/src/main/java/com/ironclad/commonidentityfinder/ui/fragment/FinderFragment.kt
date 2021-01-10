@@ -83,7 +83,8 @@ class FinderFragment : Fragment() {
                     it[0].id,
                     it[0].maritalStatus,
                     it[0].name,
-                    it[0].placeOfBirth
+                    it[0].placeOfBirth,
+                    it[0].imageUrl
                 )
                 findNavController().navigate(FinderFragmentDirections.goToDetails(user))
             }
