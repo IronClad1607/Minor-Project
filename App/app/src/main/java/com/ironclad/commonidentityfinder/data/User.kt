@@ -5,6 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class User(
+    val from: String?,
     val age: Int?,
     val gender: String?,
     val id: Int?,

@@ -76,16 +76,22 @@ class FinderFragment : Fragment() {
             binding?.progressDialog?.visibility = View.VISIBLE
             viewModel.user.observe({ lifecycle }) {
                 Log.d("Ishaan", "Fragment: $it")
-                binding?.progressDialog?.visibility = View.GONE
-                binding?.fragmentView?.alpha = 1F
+                binding?.apply {
+                    progressDialog.visibility = View.GONE
+                    fragmentView.alpha = 1F
+                    btnSelect.isClickable = true
+                    btnSubmit.isClickable = true
+                }
+
                 val user = User(
+                    "finder",
                     it[0].age,
                     it[0].gender,
                     it[0].id,
                     it[0].maritalStatus,
                     it[0].name,
                     it[0].placeOfBirth,
-                    it[0].imageUrl
+                    imageURI.toString()
                 )
                 Log.d(Constants.SCREEN_TAG, "Going to bottom sheet")
                 findNavController().navigate(FinderFragmentDirections.goToDetails(user))
