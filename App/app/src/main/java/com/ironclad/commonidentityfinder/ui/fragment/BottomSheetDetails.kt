@@ -28,6 +28,8 @@ class BottomSheetDetails : BottomSheetDialogFragment() {
         if (user.from?.equals("finder") == true) {
             Glide.with(this).load(user.imageUrl?.toUri()).into(binding.ivSelect)
         } else {
+            binding.tvHeading.visibility = View.GONE
+            binding.viewUnderline.visibility = View.GONE
             Glide.with(this).load(user.imageUrl).into(binding.ivSelect)
         }
 
