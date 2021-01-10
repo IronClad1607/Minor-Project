@@ -40,6 +40,11 @@ class HomeActivity : AppCompatActivity() {
         })
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
+
     override fun onDestroy() {
         binding = null
         super.onDestroy()
