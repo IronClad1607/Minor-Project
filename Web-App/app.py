@@ -61,8 +61,7 @@ def fetchResult():
         path = './static/{}'.format(f.filename) 
         f.save(path)
 
-    image = finalCode.frontFace(f)
-    image_result = finalCode.predict(image)
+    image_result = finalCode.predict(f)
     df = pd.read_excel("test.xlsx")
 
    
