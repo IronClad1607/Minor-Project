@@ -2,15 +2,18 @@
 # coding: utf-8
 
 # In[1]:
-
+from flask import request
 from keras.models import Model, load_model
 import numpy as np
 from keras.preprocessing import image
 from scipy import spatial
 from pathlib import Path
 from tensorflow import keras
+from PIL import Image as im 
 import cv2
-import random
+from datetime import datetime
+from io import BufferedReader
+#import request
 # In[12]:
 
 
@@ -36,9 +39,10 @@ def preprocess(img1,img2):
 # def frontFace(photo):
 #     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-#     path = './static/{}'.format(photo)
-#     img = cv2.imread(path)
-#     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#     #path = './static/{}'.format(photo)
+#     print(photo)
+#     img = cv2.imread(photo)
+#     gray = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
 
 #     faces = face_cascade.detectMultiScale(img, 1.3, 5)
 #     for (x,y,w,h) in faces:
@@ -47,8 +51,12 @@ def preprocess(img1,img2):
 #         offset = 10
 #         face_section = img[y-offset:y+h+offset,x-offset:x+w+offset]
 #         face_section = cv2.resize(face_section,(224,224))
-        
-#     return face_section
+
+#     data = im.fromarray(face_section,'RGB') 
+#     data.save('./static/abc.png')
+#     path = './static/abc.png'
+    
+#     return path
 
 def predict(photo):
     #p = Path("bollywood_celeb_faces_0/")
@@ -65,7 +73,8 @@ def predict(photo):
         for img_path in folder_dir.glob("*"):  
             
             img1 = image.load_img(photo)
-            # img1 = frontFace_db(photo)  
+            #img1 = frontFace(filepath)
+            #img1 = image.load_img(img1)  
             img1 = image.img_to_array(img1) 
             img2 = image.load_img(img_path)
             #img2 = frontFace_db(img_path) 

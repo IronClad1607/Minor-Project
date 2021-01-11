@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request
 import pyrebase
-# from flask_ngrok import run_with_ngrok
+from flask_ngrok import run_with_ngrok
 import excel2json
 from flask import jsonify 
 import finalCode
@@ -8,8 +8,9 @@ import pandas as pd
 import json
 from config import *
 
+
 app = Flask(__name__)
-# run_with_ngrok(app)
+run_with_ngrok(app)
 
 
 
@@ -60,7 +61,8 @@ def fetchResult():
         path = './static/{}'.format(f.filename) 
         f.save(path)
 
-    image_result = finalCode.predict(f)
+    image = finalCode.frontFace(f)
+    image_result = finalCode.predict(image)
     df = pd.read_excel("test.xlsx")
 
    
@@ -154,4 +156,4 @@ def result():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
