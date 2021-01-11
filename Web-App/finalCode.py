@@ -50,22 +50,6 @@ def preprocess(img1,img2):
         
 #     return face_section
 
-# def frontFace_db(photo):
-#     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-#     img1 = image.load_img(photo)
-#     img = cv2.imread(img1)
-#     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-#     faces = face_cascade.detectMultiScale(img, 1.3, 5)
-#     for (x,y,w,h) in faces:
-#         #cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,255),2)
-
-#         offset = 10
-#         face_section = img[y-offset:y+h+offset,x-offset:x+w+offset]
-#         face_section = cv2.resize(face_section,(224,224))
-        
-#     return face_section
-
 def predict(photo):
     #p = Path("bollywood_celeb_faces_0/")
     p = Path("dataset111/") 
@@ -76,11 +60,7 @@ def predict(photo):
     folder_list = []
     key_list = list(label_dict.keys())
     val_list = list(label_dict.values())
-    for folder_dir in dirs: #loops through the folders
-        folder_list.append(folder_dir)
-        #label = str(folder_dir).split("\\")[-1]
-    random.shuffle(folder_list)
-    for folder_dir in folder_list:
+    for folder_dir in dirs:
         d = 10000
         for img_path in folder_dir.glob("*"):  
             
@@ -106,13 +86,13 @@ def predict(photo):
         l.append(d)   
         minpos = l.index(min(l)) 
         #print(l)
-
-        if l[minpos] == 0:
-            #name_result = label_dict[minpos]
-            Id = str(minpos)
-        else:
-            #name_result = "NA"
-            Id = str(-1)
+        Id = str(minpos)
+        # if l[minpos] <= 0.05:
+        #     #name_result = label_dict[minpos]
+        #     Id = str(minpos)
+        # else:
+        #     #name_result = "NA"
+        #     Id = str(-1)
         #name_result = label_dict[minpos] 
         
     return Id
