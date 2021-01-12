@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CommonIdentityFinder.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activities.LoginActivity"></activity>
+        <activity android:name=".ui.activities.LoginActivity" />
         <activity android:name=".ui.activities.HomeActivity" />
         <activity android:name=".ui.activities.SplashActivity">
             <intent-filter>
